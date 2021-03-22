@@ -95,7 +95,7 @@ module Bundler
             SharedHelpers.filesystem_access(path.dirname) do |p|
               FileUtils.mkdir_p(p)
             end
-            git_retry "clone", "--bare", "--no-hardlinks", "--quiet", "--", configured_uri, path.to_s
+            git_retry "clone", "--bare", "--quiet", "--", configured_uri, path.to_s
             return unless extra_ref
           end
 
