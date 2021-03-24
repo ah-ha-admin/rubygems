@@ -277,6 +277,7 @@ module Bundler
         end
 
         def with_path(&blk)
+          remove_cache if path.join("shallow").exist? && full_clone?
           checkout unless path.exist?
           blk.call
         end
